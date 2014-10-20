@@ -1,6 +1,6 @@
 {
     "project_name": "project_name",
-    "repo_name":"repo_name",
+    "repo_name":"project",
     "author_name": "Your Name",
     "email": "Your email",
     "description": "A short description of the project.",
@@ -8,6 +8,7 @@
     "with_documentation": "yes",
     "environment": "dev",
     "production_domain": "domain.com",
-    "current_domain": "domain.unbit.it",
-    "execution_mode": "dev"
+    "current_domain": "dev.domain.com",
+    "execution_mode": "dev",
+    "container_id": "30116"
 }

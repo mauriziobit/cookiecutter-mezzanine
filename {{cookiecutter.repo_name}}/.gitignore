@@ -1,7 +1,42 @@
-*.pyc
-*.pyo
-*.db
+*.py[cod]
+*.swp
+
+# migrazioni
+app/*/migrations/*
+
+# spooler
+spooler/uwsgi*
+
+# file uploadati, collectstatic
+static/cache
+static/up
+static/wf
+static/robots.txt
+static/banner
+static/uploads
+static/product
+static/sitemap.xml
+static/static
+
+np_upload
+
+# venv
+venv
+
+# valutare se fare un git submodule http://stackoverflow.com/questions/9067283/is-there-a-way-to-use-a-mercurial-repository-as-git-submodule
+unbit/
+!app/unbit
+
+# log, pid, file configurazione uwsgi
+uwsgi.*
+*.pid
+*.log
+
+bin/manage
+
+.htpasswd
+.htaccess
+
+# varie OS X
 .DS_Store
-.coverage
-local_settings.py
-/static
+__MACOSX

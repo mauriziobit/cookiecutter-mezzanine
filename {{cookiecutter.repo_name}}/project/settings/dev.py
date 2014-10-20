@@ -9,15 +9,15 @@ NEVERCACHE_KEY = "6b069d3b-705d-40e2-8db8-a1a0dab819ccf6083c2f-3213-445d-8668-6e
 DATABASES = {
     "default": {
         # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         # DB name or path to database file if using sqlite3.
-        "NAME": "{{cookiecutter.environment}}.db",
+        "NAME": "{{cookiecutter.project_name}}_db2",
         # Not used with sqlite3.
-        "USER": "",
+        "USER": "{{cookiecutter.project_name}}",
         # Not used with sqlite3.
         "PASSWORD": "",
         # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "",
+        "HOST": "/containers/{{cookiecutter.container_id}}/db.pg",
         # Set to empty string for default. Not used with sqlite3.
         "PORT": "",
     }
