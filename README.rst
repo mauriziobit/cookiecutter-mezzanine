@@ -51,7 +51,7 @@ The steps below will get you up and running with a local development environment
 
 First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
 
-    $ pip install -r requirements/local.txt
+    $ pip install -r requirements/dev.txt
 
 .. _virtualenv: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
@@ -60,6 +60,10 @@ Now run the ``createdb`` command::
 	$ python manage.py createdb
 
 And answer to all the question that will be prompted.
+
+The last step is collect all the static files::
+
+	$ python manage.py collectstatic
 
 You can now run the usual Django ``runserver`` command::
 
