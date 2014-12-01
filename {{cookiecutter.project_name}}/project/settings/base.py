@@ -164,6 +164,7 @@ MANAGERS = ADMINS
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     '{{cookiecutter.current_domain}}',
+    'www.{{cookiecutter.current_domain}}',
 ]
 
 # Local time zone for this installation. Choices can be found here:
@@ -189,10 +190,14 @@ LANGUAGES = (
     ('en', _('English')),
 )
 
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'locale'),
+)
+
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
-DEBUG = False
+DEBUG = True
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -342,6 +347,7 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+    "rosetta",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -401,6 +407,21 @@ OPTIONAL_APPS = (
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )
+
+
+###################
+# WEBMASTER TOOLS #
+###################
+
+WEBMASTER_VERIFICATION = {
+
+    # This is just a placeholder. The verification token must be placed in
+    # the environment specific file (dev.py, ux.py, etc..).
+    #
+    # Check https://github.com/nkuttler/django-webmaster-verification
+    # for the details.
+}
+
 
 ###################
 # DEPLOY SETTINGS #

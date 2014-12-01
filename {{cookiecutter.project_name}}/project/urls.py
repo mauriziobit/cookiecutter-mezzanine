@@ -13,13 +13,20 @@ admin.autodiscover()
 # You can also change the ``home`` view to add your own functionality
 # to the project's homepage.
 
-urlpatterns = i18n_patterns("",
-    # Change the admin prefix here to use an alternate URL for the
-    # admin interface, which would be marginally more secure.
-    ("^admin/", include(admin.site.urls)),
+urlpatterns = patterns("",
+
+    # webmaster tools
+    url(r'', include('webmaster_verification.urls')),
 )
 
-urlpatterns += patterns('',
+urlpatterns += i18n_patterns("",
+
+    # Change the admin prefix here to use an alternate URL for the
+    # admin interface, which would be marginally more secure.
+    url("^admin/", include(admin.site.urls)),
+
+    # Rosetta URLs.
+    url(r'^rosetta/', include('rosetta.urls')),
 
     # Cartridge URLs.
     ("^shop/", include("cartridge.shop.urls")),

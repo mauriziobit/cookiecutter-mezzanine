@@ -1,5 +1,0 @@
-psycopg2
-Mezzanine
-Cartridge
-South
-pathlib
