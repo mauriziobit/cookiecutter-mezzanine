@@ -1,6 +1,35 @@
 from __future__ import absolute_import, unicode_literals
 
 
+#########################
+# ENVIRONMENT VARIABLES #
+#########################
+
+import os
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_variable(var_name):
+    msg = "Set the %s environment variable"
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = msg % var_name
+        raise ImproperlyConfigured(error_msg)
+
+
+#########
+# PATHS #
+#########
+
+from pathlib import Path
+
+# Full filesystem path to the project.
+PROJECT_ROOT = unicode(Path(__file__).parents[1])
+
+# Name of the directory for the project.
+PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
+
+
 ######################
 # CARTRIDGE SETTINGS #
 ######################
@@ -163,7 +192,8 @@ MANAGERS = ADMINS
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
-    '{{cookiecutter.current_domain}}',
+    '{{cookiecutter.production_domain}}',
+    'www.{{cookiecutter.production_domain}}',
 ]
 
 # Local time zone for this installation. Choices can be found here:
@@ -189,10 +219,14 @@ LANGUAGES = (
     ('en', _('English')),
 )
 
+LOCALE_PATHS = (
+    os.path.join(PROJECT_ROOT, 'locale'),
+)
+
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
-DEBUG = False
+DEBUG = True
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -201,7 +235,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
@@ -250,33 +284,6 @@ DATABASES = {
     }
 }
 
-#########################
-# ENVIRONMENT VARIABLES #
-#########################
-
-import os
-from django.core.exceptions import ImproperlyConfigured
-
-def get_env_variable(var_name):
-    msg = "Set the %s environment variable"
-    try:
-        return os.environ[var_name]
-    except KeyError:
-        error_msg = msg % var_name
-        raise ImproperlyConfigured(error_msg)
-
-
-#########
-# PATHS #
-#########
-
-from pathlib import Path
-
-# Full filesystem path to the project.
-PROJECT_ROOT = unicode(Path(__file__).parents[1])
-
-# Name of the directory for the project.
-PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 
 # Every cache key will get prefixed with this value - here we set it to
 # the name of the directory the project is in to try and use something
@@ -340,8 +347,9 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    #"mezzanine.accounts",
+    "mezzanine.accounts",
     #"mezzanine.mobile",
+    "rosetta",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -401,6 +409,21 @@ OPTIONAL_APPS = (
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )
+
+
+###################
+# WEBMASTER TOOLS #
+###################
+
+WEBMASTER_VERIFICATION = {
+
+    # This is just a placeholder. The verification token must be placed in
+    # the environment specific file (dev.py, ux.py, etc..).
+    #
+    # Check https://github.com/nkuttler/django-webmaster-verification
+    # for the details.
+}
+
 
 ###################
 # DEPLOY SETTINGS #
