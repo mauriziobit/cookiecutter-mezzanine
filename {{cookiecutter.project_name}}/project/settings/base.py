@@ -59,6 +59,7 @@ PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 # module in the python standard library. If an empty string is
 # used, will fall back to the system's locale.
 # SHOP_CURRENCY_LOCALE = ""
+SHOP_CURRENCY_LOCALE = "it_IT.UTF-8"
 
 # Dotted package path and class name of the function that
 # is called on submit of the billing/shipping checkout step. This
