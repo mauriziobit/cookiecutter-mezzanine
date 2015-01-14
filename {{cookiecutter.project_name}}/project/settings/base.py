@@ -1,5 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
+from django.utils.translation import ugettext_lazy as _
+
 
 #########################
 # ENVIRONMENT VARIABLES #
@@ -214,7 +216,6 @@ USE_TZ = True
 LANGUAGE_CODE = "it"
 
 # Supported languages
-_ = lambda s: s
 LANGUAGES = (
     ('it', _('Italian')),
     ('en', _('English')),
@@ -300,7 +301,7 @@ STATIC_URL = "/static/"
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 # STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, '../static/static/')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, '..', 'static', 'static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -310,7 +311,7 @@ MEDIA_URL = "/"
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 # MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, '../static/')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, '..', 'static')
 
 # Package/module name to import the root urlpatterns from for the project.
 # ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
@@ -321,7 +322,7 @@ ROOT_URLCONF = "urls"
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, '../templates/'),
+    os.path.join(PROJECT_ROOT, '..', 'templates'),
 )
 
 ################
@@ -348,7 +349,7 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    "mezzanine.accounts",
+    #"mezzanine.accounts",
     #"mezzanine.mobile",
     "rosetta",
 )
