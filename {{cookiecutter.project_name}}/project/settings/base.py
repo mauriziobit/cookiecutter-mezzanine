@@ -173,12 +173,15 @@ SHOP_CURRENCY_LOCALE = "it_IT.UTF-8"
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
-# BLOG_USE_FEATURED_IMAGE = True
+BLOG_USE_FEATURED_IMAGE = True
 
 # If True, the south application will be automatically added to the
 # INSTALLED_APPS setting.
 USE_SOUTH = True
 
+# If True, the django-modeltranslation will be added to the
+# INSTALLED_APPS setting.
+USE_MODELTRANSLATION = True
 
 ########################
 # MAIN DJANGO SETTINGS #
@@ -339,19 +342,20 @@ INSTALLED_APPS = (
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     "theme",
-    "cartridge.shop",
+    "rosetta",
+    "webmaster_verification",
     "mezzanine.boot",
     "mezzanine.conf",
     "mezzanine.core",
     "mezzanine.generic",
+    "mezzanine.pages",
+    "cartridge.shop",
     "mezzanine.blog",
     "mezzanine.forms",
-    "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
-    #"mezzanine.accounts",
-    #"mezzanine.mobile",
-    "rosetta",
+    # "mezzanine.accounts",
+    # "mezzanine.mobile",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -419,7 +423,7 @@ OPTIONAL_APPS = (
 
 WEBMASTER_VERIFICATION = {
 
-    # This is just a placeholder. The verification token must be placed in
+    # This is just a placeholder. The verification token should be placed in
     # the environment specific file (dev.py, ux.py, etc..).
     #
     # Check https://github.com/nkuttler/django-webmaster-verification

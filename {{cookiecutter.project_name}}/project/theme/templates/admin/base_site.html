@@ -1,4 +1,5 @@
-% extends "admin/base.html" %}
+{% raw %}
+{% extends "admin/base.html" %}
 {% load mezzanine_tags i18n future staticfiles %}
 
 {% block title %}{{ title }} | {{ cookiecutter.project_name }}{% endblock %}
@@ -70,3 +71,4 @@ jQuery(function($) {
     {% endif %}
 {% endif %}
 {% endblock %}
+{% endraw %}

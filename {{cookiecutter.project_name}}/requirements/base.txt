@@ -1,7 +1,8 @@
 psycopg2==2.5.4
-Mezzanine==3.1.10
-Cartridge==0.9.5
+-e git://github.com/mauriziobit/mezzanine.git#egg=mezzanine
+-e git://github.com/mauriziobit/cartridge.git#egg=cartridge
 South==1.0.1
 pathlib==1.0.1
 django-rosetta==0.7.4
 django-webmaster-verification==0.2.3
+django-modeltranslation==0.8

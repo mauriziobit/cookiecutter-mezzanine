@@ -19,7 +19,7 @@ Features
 Constraints
 ------------
 
-- PostgreSQL 9.x database	
+- PostgreSQL 9.3 database
 
 
 Usage
@@ -46,8 +46,8 @@ Getting up and running
 
 The steps below will get you up and running with a local development environment. We assume you have the following installed:
 
-* pip
-* virtualenv
+* `pip`
+* `virtualenv`
 
 First make sure to create and activate a virtualenv_, then open a terminal at the project root and install the requirements for local development::
 
