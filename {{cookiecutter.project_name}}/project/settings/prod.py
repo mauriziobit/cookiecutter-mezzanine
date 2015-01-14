@@ -23,7 +23,7 @@ DATABASES = {
         # Not used with sqlite3.
         "USER": "{{cookiecutter.project_name}}",
         # Not used with sqlite3.
-        "PASSWORD": "",
+        "PASSWORD": "{{cookiecutter.project_password}}",
         # Set to empty string for localhost. Not used with sqlite3.
         "HOST": "/containers/{{cookiecutter.container_id}}/db.pg",
         # Set to empty string for default. Not used with sqlite3.
